@@ -2,7 +2,6 @@ package com.teknei.practicas.concesionario.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,12 +19,13 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "Coches")
+@Table(name = "coches")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
+@JsonPropertyOrder({ "id", "modelo", "matricula", "marca_id" })
 public class Coches {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +39,6 @@ public class Coches {
 
 	@JsonBackReference
 	@JoinColumn(name = "marca_id")
-	@ManyToOne(fetch = FetchType.EAGER)
-	private Marcas marca;
+	@ManyToOne
+	private Marcas marcas;
 }

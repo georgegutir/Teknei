@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "Marcas")
+@Table(name = "marcas")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,9 +33,9 @@ public class Marcas {
 	@Column(nullable = false)
 	private String marca;
 
-	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@JsonManagedReference
-	@OneToMany(mappedBy = "marca", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "marcas", fetch = FetchType.LAZY)
 	private final Set<Coches> coches = new HashSet<>();
 }
