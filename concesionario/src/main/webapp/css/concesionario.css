@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+del {
+  position: relative;
+  text-decoration: none;
+}
+
+del:before {
+  position: absolute;
+  content: "";
+  left: -5px;
+  top: 50%;
+  right: -5px;
+  border-top: 1px solid;
+  border-color: inherit;
+
+  transform:rotate(-15deg);
+}
+
+.img-Cabecera {
+	width: -webkit-fill-available;
+}

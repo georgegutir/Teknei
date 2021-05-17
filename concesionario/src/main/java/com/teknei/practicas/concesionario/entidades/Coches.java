@@ -2,6 +2,7 @@ package com.teknei.practicas.concesionario.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,6 +40,6 @@ public class Coches {
 
 	@JsonBackReference
 	@JoinColumn(name = "marca_id")
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Marcas marcas;
 }
