@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -32,47 +33,39 @@ public class IndexController {
 	@Autowired
 	CocheRepositorio car;
 	
-	private static final String SQL_INSERT = "INSERT INTO coches (modelo, matricula, marca_id) VALUES (?, ?, ?)";
+	private static final String SQL_INSERT = "INSERT INTO Coches (marca_id, modelo, matricula) VALUES (?, ?, ?)";
 
 	@Autowired
 	private DataSource dataSource;
 
-
-	@RequestMapping(value="index", method = RequestMethod.POST)
-	public String alta(@Valid Coches coches, BindingResult bindingResult, ModelMap mp){
+	@PostMapping("/alta")
+	public String alta(Coches coches) {
 		try (Connection con = dataSource.getConnection();
 				PreparedStatement ps = con.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
 				) {
-			ps.setString(1, coches.getModelo());
-			ps.setString(2, coches.getMatricula());
-			ps.setLong(3, coches.getMarcas().getId());
-
+			ps.setLong(1, coches.getMarcas().getId());
+			ps.setString(2, coches.getModelo());
+			ps.setString(3, coches.getMatricula());
+			
 			int num = ps.executeUpdate();
-
+			
 			if(num != 1) {
 				throw new AccesoDatosException("Ha habido una incidencia en la inserción de cliente: " + num);
 			}
-
+			
 			ResultSet rs = ps.getGeneratedKeys();
-
+			
 			rs.next();
-
+			
 			coches.setId(rs.getLong(1));
-
-			log.info(coches.toString());
-
+			
 			con.commit();
+			log.info(coches.toString());
 			return "index";
 		} catch (Exception e) {
 			throw new AccesoDatosException("Error al insertar el cliente " + coches, e);
 		}
-	//	if(bindingResult.hasErrors()) {
-	//		return "index";
-	//	}else{
-	//		car.save(coches);
-	//		mp.put("coches", coches);
-	//		return "index";
-	//	}
+
 	}
 	
 	

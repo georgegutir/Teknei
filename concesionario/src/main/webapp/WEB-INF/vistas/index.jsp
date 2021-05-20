@@ -12,9 +12,14 @@
 				<div class="col-sm-10">
 					<select class="form-control custom-select" required id="marcas" name="marcas">
 						<option value="0">Seleccione una marca...</option>	
-						<c:forEach items="${Marcas}" var="m">
-							<option value="${m.id}"}>${m.marca}</option>
+						<%-- 
+						<c:forEach items="${marcas}" var="m">
+							<option value="${m.id}">${m.marca}</option>
 						</c:forEach>
+						--%>
+						<option value="1">Seat</option>
+                    	<option value="2">Renault</option>
+                    	<option value="3">Citroen</option>
 					</select>
 				</div>
 			</div>
@@ -34,7 +39,7 @@
 					<input type="text" class="form-control" name="matricula" id="matricula" placeholder="Introduzca la matrícula, 1111-AAA">
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary">Aceptar</button>
+			<button type="submit" name="alta" value="alta" class="btn btn-primary btn-lg">Dar de alta</button>
 		</form>
 	</div>
 </div>
