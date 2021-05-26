@@ -9,9 +9,9 @@
 <html lang="es">
 <head>
 
-<!-- base pa tener el mismo menu en todas las pag y no se rompa la ruta ej. cuenta admin -->
-<%-- <base href="/supermercado/" /> --%>
-<base href="${pageContext.request.contextPath}/" /> 
+<!-- base pa tener el mismo menu en todas las pag y no se rompa la ruta  -->
+<base href="${pageContext.request.contextPath}/" />
+
 
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -30,23 +30,20 @@
 <title>Concesionario</title>
 </head>
 <body>
-	<%--  
-		<header class="navbar fixed-top navbar-light justify-content-end" style="background-color: #9dc3e7;">
-			<a class="navbar-brand" href="index">
-    			<img src="img/logo.jpg" width="100" height="70" >
-    		</a>
-		</header>
-	--%>
-	
+	<nav class="navbar navbar-light justify-content-end" style="background-color: #9dc3e7;">
+  		<a class="navbar-brand" href="index">
+    	<img src="img/logo.jpg" width="100" height="70">
+  		</a>
+	</nav>
 	
 	<main class="container-justify"> 
 	
 	<div class="row">
-	<div class="col-2" style="background-color: #4472c4;">
+	<div class="col-2" style="background-color: #4472c4">
 		<div class="nav flex-column nav-pills container pt-3" id="v-pills-tab" role="tablist"
 			aria-orientation="vertical">
-			<a class="nav-link text-dark" id="alta" data-toggle="pill" href="index">Alta coche</a> 
-			<a class="nav-link text-dark" id="listado" data-toggle="pill" href="listado">Listado coches</a>
+			<a class="nav-link text-dark" id="index" href="index">Alta coche</a> 
+			<a class="nav-link text-dark" id="listado" href="listado">Listado coches</a>
 		</div>
 	</div>
 	
