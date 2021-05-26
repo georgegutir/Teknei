@@ -1,5 +1,6 @@
 package com.teknei.practicas.concesionario.entidades;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +26,10 @@ import lombok.ToString;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Marcas {
+public class Marcas implements Serializable{
+	
+	private static final long serialVersionUID = 7623251760150200816L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -35,7 +39,7 @@ public class Marcas {
 
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
-	@JsonManagedReference
+	@JsonBackReference
 	@OneToMany(mappedBy = "marcas", fetch = FetchType.LAZY)
 	private final Set<Coches> coches = new HashSet<>();
 }

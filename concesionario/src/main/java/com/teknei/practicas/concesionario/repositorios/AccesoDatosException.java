@@ -6,6 +6,10 @@ public class AccesoDatosException extends RuntimeException {
 	public AccesoDatosException() {
 		super();
 	}
+	
+	public AccesoDatosException(Long id) {
+		super("Could not find marca " + id);
+	}
 
 	public AccesoDatosException(String message, Throwable cause, boolean enableSuppression,
 			boolean writableStackTrace) {

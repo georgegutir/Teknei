@@ -47,14 +47,14 @@ public class IndexController {
 	}
 	
 	@GetMapping("/lista")
-	public Iterable<Coches> lista(@RequestParam(value="marca_id") Long marca_id) {
-		return car.findByMarca(marca_id);
+	public String lista(@RequestParam(value="marca_id") Long marca_id, ModelMap mp) {
+		mp.put("coches", car.findByMarca(marca_id));
+		return "lista";
 	}
 	
-	//@GetMapping("/listado/{marca_id}")
-	//public String lista(@PathVariable Long marca_id, ModelMap mp) {
-		//mp.put("coches", car.findByMarca(marca_id));
-		//return "listado/{marca_id}";
+	//@GetMapping("/lista")
+	//public Iterable<Coches> lista(@RequestParam(value="marca_id") Long marca_id) {
+		//return car.findByMarca(marca_id);
 	//}
 	
 	/**@PostMapping("/alta")
