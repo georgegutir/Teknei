@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-  
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <fmt:setLocale value="es_ES" />
@@ -30,20 +30,21 @@
 <title>Concesionario</title>
 </head>
 <body>
-	<nav class="navbar navbar-light justify-content-end" style="background-color: #9dc3e7;">
-  		<a class="navbar-brand" href="index">
-    	<img src="img/logo.jpg" width="100" height="70">
-  		</a>
+	<nav class="navbar navbar-light justify-content-end"
+		style="background-color: #9dc3e7;">
+		<a class="navbar-brand" href="index"> <img src="img/logo.jpg"
+			width="100" height="70">
+		</a>
 	</nav>
-	
-	<main class="container-justify"> 
-	
-	<div class="row">
-	<div class="col-2" style="background-color: #4472c4">
-		<div class="nav flex-column nav-pills container pt-3" id="v-pills-tab" role="tablist"
-			aria-orientation="vertical">
-			<a class="nav-link text-dark" id="index" href="index">Alta coche</a> 
-			<a class="nav-link text-dark" id="listado" href="listado">Listado coches</a>
-		</div>
-	</div>
-	
+
+	<main class="container-justify">
+
+		<div class="row">
+			<div class="col-2" style="background-color: #4472c4; height: 100vh;">
+				<div class="nav flex-column nav-pills container pt-3"
+					id="v-pills-tab" role="tablist" aria-orientation="vertical">
+					<a class="nav-link text-dark" id="index" href="index">Alta
+						coche</a> <a class="nav-link text-dark" id="listado" href="listado">Listado
+						coches</a>
+				</div>
+			</div>

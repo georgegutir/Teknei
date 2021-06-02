@@ -1,22 +1,8 @@
-@charset "UTF-8";
-
-del {
-  position: relative;
-  text-decoration: none;
+.menu {
+	height: 100vh;
 }
 
-del:before {
-  position: absolute;
-  content: "";
-  left: -5px;
-  top: 50%;
-  right: -5px;
-  border-top: 1px solid;
-  border-color: inherit;
-
-  transform:rotate(-15deg);
-}
-
-.img-Cabecera {
-	width: -webkit-fill-available;
+.formulario {
+	height: 100vh;
+	background-color: #f2f2f2;
 }

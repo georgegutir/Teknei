@@ -19,7 +19,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "coches")
+@Table(name = "COCHES")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,6 +29,7 @@ public class Coches implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID")
 	private Long id;
 
 	@Column(nullable = false)
@@ -38,7 +39,7 @@ public class Coches implements Serializable{
 	private String matricula;
 
 	@JsonBackReference
-	@JoinColumn(name = "marca_id")
+	@JoinColumn(name = "MARCA_ID")
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Marcas marcas;
 }

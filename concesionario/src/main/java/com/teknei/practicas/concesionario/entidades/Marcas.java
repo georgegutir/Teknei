@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "marcas")
+@Table(name = "MARCAS")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,6 +32,7 @@ public class Marcas implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID")
 	private Long id;
 
 	@Column(nullable = false)
